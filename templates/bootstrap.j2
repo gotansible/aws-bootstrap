@@ -24,5 +24,5 @@ sleep 10
 
 ansible-playbook provision.yml -i inventory.ini -e "provision_vpc_id=$VPC_ID" --private-key "{{ aws_private_key }}"
 
-terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key={{ genesis_state_file }}"
+terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key={{ aws_bootstrap_state_file }}"
 
