@@ -3,10 +3,10 @@ dependencies: []
 
 galaxy_info:
   author: Franklin Wise
-  description: A role to create
+  description: A role to create a script to create a new minimum Amazon VPC with provisioning server.
   company: 
   license: MIT
-  min_ansible_version: 1.8
+  min_ansible_version: 1.9
   platforms:
   - name: EL
     versions:

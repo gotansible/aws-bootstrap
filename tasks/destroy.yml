@@ -2,11 +2,11 @@
 # this doesn't work, ansible deletes the whole bucket
 #- name: delete state file from s3
 #  s3:
-#    bucket={{ genesis_state_bucket }}
+#    bucket={{ aws_bootstrap_state_bucket }}
 #    mode=delete
-#    object={{ genesis_state_file }}
+#    object={{ aws_bootstrap_state_file }}
 #    aws_access_key={{ aws_access_key }}
 #    aws_secret_key={{ aws_secret_key }}
 #    region={{ aws_region }}
-#  when: genesis_destroy
+#  when: aws_bootstrap_destroy
 

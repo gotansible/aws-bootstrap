@@ -9,14 +9,14 @@ aws_region = "{{ aws_region }}"
 vpc_zone = "{{ aws_zone }}"
 vpc_zone_alt = "{{ aws_zone_alt }}"
 
-aws_vpc_name = "{{ genesis_vpc_name }}"
+aws_vpc_name = "{{ aws_bootstrap_vpc_name }}"
 aws_keypair_name = "{{ aws_keypair_name }}"
 aws_private_key = "{{ aws_private_key }}"
 
-state_bucket = "{{ genesis_state_bucket }}"
+state_bucket = "{{ aws_bootstrap_state_bucket }}"
 # no state file, because that is named outside of the terraform run
 # for bootstraing
 
-jump_access_cidr = "{{ genesis_jump_access_cidr }}"
+jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 
 

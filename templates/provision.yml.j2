@@ -15,24 +15,24 @@
 
   - role: gotansible.terraform
   - role: kraveio.provision
-    provision_vpc_name: "{{ genesis_vpc_name }}"
-    provision_state_bucket: "{{ genesis_state_bucket }}"
-    provision_state_file: "{{ genesis_state_file }}"
-    provision_jump_access_cidr: "{{ genesis_jump_access_cidr }}"
+    provision_vpc_name: "{{ aws_bootstrap_vpc_name }}"
+    provision_state_bucket: "{{ aws_bootstrap_state_bucket }}"
+    provision_state_file: "{{ aws_bootstrap_state_file }}"
+    provision_jump_access_cidr: "{{ aws_bootstrap_jump_access_cidr }}"
     provision_keypair_name: "{{ aws_keypair_name }}"
     provision_private_key: ~/.ssh/provision/{{ aws_private_key | basename }}
     provision_inventory_all_filters:
       - "vpc-id={{'{{'}} provision_vpc_id {{ '}}' }}"
 
-    provision_playbook_repo_url: "{{ genesis_playbook_repo }}"
-    provision_playbook_repo_keyfile: "{{ genesis_playbook_repo_keyfile }}"
-    provision_playbook_repo_version: "{{ genesis_playbook_repo_version }}"
-    provision_terraform_repo_url: "{{ genesis_terraform_repo }}"
-    provision_terraform_repo_keyfile: "{{ genesis_terraform_repo_keyfile }}"
-    provision_terraform_repo_version: "{{ genesis_terraform_repo_version }}"
-{% if genesis_keys|length > 0 %}
+    provision_playbook_repo_url: "{{ aws_bootstrap_playbook_repo }}"
+    provision_playbook_repo_keyfile: "{{ aws_bootstrap_playbook_repo_keyfile }}"
+    provision_playbook_repo_version: "{{ aws_bootstrap_playbook_repo_version }}"
+    provision_terraform_repo_url: "{{ aws_bootstrap_terraform_repo }}"
+    provision_terraform_repo_keyfile: "{{ aws_bootstrap_terraform_repo_keyfile }}"
+    provision_terraform_repo_version: "{{ aws_bootstrap_terraform_repo_version }}"
+{% if aws_bootstrap_keys|length > 0 %}
     provision_keys:
-{% for path in genesis_keys %}
+{% for path in aws_bootstrap_keys %}
       - {{ path }}
 {% endfor %}
 {% endif %}

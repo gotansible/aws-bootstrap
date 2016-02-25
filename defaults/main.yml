@@ -1,20 +1,20 @@
 ---
 
-genesis_state_bucket: ''
-genesis_state_file: vpc.tfstate
+aws_bootstrap_state_bucket: ''
+aws_bootstrap_state_file: vpc.tfstate
 
-genesis_vpc_name: ''
+aws_bootstrap_vpc_name: ''
 # use + to delimit list
-genesis_jump_access_cidr: "0.0.0.0/0"
+aws_bootstrap_jump_access_cidr: "0.0.0.0/0"
 
-genesis_keys: []
+aws_bootstrap_keys: []
 
 ### Special Flags ####
 
 #generate files in this dir
-genesis_deploy_dir: ../.bootstrap
-genesis_isolated: false
-genesis_destroy: false
+aws_bootstrap_deploy_dir: ../.bootstrap
+aws_bootstrap_isolated: false
+aws_bootstrap_destroy: false
 
 ########################
 
