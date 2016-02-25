@@ -1,0 +1,11 @@
+---
+
+- name: setup common
+  include: common.yml
+
+- name: install full environment
+  include: depend.yml
+  when: genesis_isolated
+
+  #- name: create
+  #  include: create.yml
