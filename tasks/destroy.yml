@@ -5,8 +5,8 @@
 #    bucket={{ aws_bootstrap_state_bucket }}
 #    mode=delete
 #    object={{ aws_bootstrap_state_file }}
-#    aws_access_key={{ aws_access_key }}
-#    aws_secret_key={{ aws_secret_key }}
-#    region={{ aws_region }}
+#    aws_access_key={{ aws_bootstrap_aws_access_key }}
+#    aws_secret_key={{ aws_bootstrap_aws_secret_key }}
+#    region={{ aws_bootstrap_aws_region }}
 #  when: aws_bootstrap_destroy
 

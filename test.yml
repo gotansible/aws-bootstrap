@@ -2,12 +2,13 @@
   gather_facts: no
   sudo: true
   vars:
-    aws_access_key: ""
-    aws_secret_key: ""
-    aws_account_id: ""
+    #aws_bootstrap_aws_access_key: ""
+    #aws_bootstrap_aws_secret_key: ""
+    #aws_bootstrap_aws_account_id: ""
+
     # Server Keys
-    aws_keypair_name: keypair-name-2015
-    aws_private_key: ~/.ssh/aws-keypair-private-key.pem
+    aws_bootstrap_aws_keypair_name: keypair-name-2015
+    aws_bootstrap_aws_private_key: ~/.ssh/aws-keypair-private-key.pem
 
     #Deploy Keyfile
     github_deploy_key: deploy_key
@@ -19,9 +20,9 @@
     safe_cidr: "65.200.54.234/32"
     
     # Region
-    aws_region: us-west-2
-    aws_zone: "{{ aws_region }}a"
-    aws_zone_alt: "{{ aws_region }}b"
+    aws_bootstrap_aws_region: us-west-2
+    aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
+    aws_bootstrap_aws_zone_alt: "{{ aws_bootstrap_aws_region }}b"
 
   roles:
     - role: aws_bootstrap
@@ -39,5 +40,5 @@
       aws_bootstrap_terraform_repo_keyfile: "{{ github_deploy_key }}"
       aws_bootstrap_keys:
         - "{{ github_local_deploy_key }}"
-        - "{{ aws_private_key }}"
+        - "{{ aws_bootstrap_aws_private_key }}"
 

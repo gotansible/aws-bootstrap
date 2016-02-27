@@ -18,14 +18,17 @@ aws_bootstrap_destroy: false
 
 ########################
 
-aws_access_key: ''
-aws_secret_key: ''
-aws_account_id: ''
+aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
 
-aws_region: us-west-2
-aws_zone: "{{ aws_region }}a"
-aws_zone_alt: "{{ aws_region }}b"
+########################
 
-aws_keypair_name: ''
-aws_private_key: ''
+aws_bootstrap_aws_access_key: ''
+aws_bootstrap_aws_secret_key: ''
+aws_bootstrap_aws_account_id: ''
+aws_bootstrap_aws_region: us-west-2
+aws_bootstrap_aws_zone: "{{ aws_bootstrap_aws_region }}a"
+aws_bootstrap_aws_zone_alt: "{{ aws_bootstrap_aws_region }}b"
+aws_bootstrap_aws_keypair_name: ''
+aws_bootstrap_aws_private_key: ''
 
+######################

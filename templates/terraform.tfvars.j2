@@ -1,17 +1,19 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+
 # this is the local tfvars file to do a one time bootstrap
 # and then it should, most likely, be deleted
 
-aws_access_key = "{{ aws_access_key }}"
-aws_secret_key = "{{ aws_secret_key }}"
-aws_account_id = "{{ aws_account_id }}"
-aws_region = "{{ aws_region }}"
+aws_access_key = "{{ aws_bootstrap_aws_access_key }}"
+aws_secret_key = "{{ aws_bootstrap_aws_secret_key }}"
+aws_account_id = "{{ aws_bootstrap_aws_account_id }}"
+aws_region = "{{ aws_bootstrap_aws_region }}"
 
-vpc_zone = "{{ aws_zone }}"
-vpc_zone_alt = "{{ aws_zone_alt }}"
+vpc_zone = "{{ aws_bootstrap_aws_zone }}"
+vpc_zone_alt = "{{ aws_bootstrap_aws_zone_alt }}"
 
 aws_vpc_name = "{{ aws_bootstrap_vpc_name }}"
-aws_keypair_name = "{{ aws_keypair_name }}"
-aws_private_key = "{{ aws_private_key }}"
+aws_keypair_name = "{{ aws_bootstrap_aws_keypair_name }}"
+aws_private_key = "{{ aws_bootstrap_aws_private_key }}"
 
 state_bucket = "{{ aws_bootstrap_state_bucket }}"
 # no state file, because that is named outside of the terraform run
@@ -19,4 +21,6 @@ state_bucket = "{{ aws_bootstrap_state_bucket }}"
 
 jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 
-
+{% if aws_bootstrap_genesis_source|length > 0 %}
+genesis_source = "{{ aws_bootstrap_genesis_source }}"
+{% endif %}
