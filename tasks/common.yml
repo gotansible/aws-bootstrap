@@ -54,6 +54,6 @@
 - name: common - generate terraform file
   copy:
     src={{ aws_bootstrap_terraform_file }}
-    dest={{ aws_bootstrap_deploy_dir }}/aws_bootstrap.tf
+    dest={{ aws_bootstrap_deploy_dir }}/genesis.tf
     mode=640
 

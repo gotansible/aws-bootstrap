@@ -20,7 +20,7 @@
     provision_state_file: "{{ aws_bootstrap_state_file }}"
     provision_jump_access_cidr: "{{ aws_bootstrap_jump_access_cidr }}"
     provision_keypair_name: "{{ aws_bootstrap_aws_keypair_name }}"
-    provision_private_key: ~/.ssh/provision/{{ aws_bootstrap_aws_private_key | basename }}
+    provision_private_key: "~/.ssh/provision/{{ aws_bootstrap_aws_private_key | basename }}"
     provision_inventory_all_filters:
       - "vpc-id={{'{{'}} provision_vpc_id {{ '}}' }}"
 
