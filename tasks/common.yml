@@ -29,7 +29,7 @@
 
 - name: common - generate terraform tfvars file
   template:
-    src=vpc-genesis.tfvars.j2
+    src=vpc-genesis.tf.j2
     dest={{ aws_bootstrap_deploy_dir }}/vpc-genesis.tf
     mode=660
 
