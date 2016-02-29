@@ -20,6 +20,9 @@ aws_bootstrap_destroy: false
 
 aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
 
+# setting this will overrirde the one generate from the template in this file
+aws_bootstrap_terraform_file: ""
+
 ########################
 
 aws_bootstrap_aws_access_key: ''

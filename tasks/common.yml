@@ -57,9 +57,10 @@
     dest={{ aws_bootstrap_deploy_dir }}/destroy
     mode=750
 
-- name: common - generate terraform file
+- name: common - copy terraform modle file
   copy:
     src={{ aws_bootstrap_terraform_file }}
-    dest={{ aws_bootstrap_deploy_dir }}/genesis.tf
+    dest={{ aws_bootstrap_deploy_dir }}/vpc-genesis.tf
     mode=640
+  when: {{ aws_bootstrap_terraform_file|length > 0 }}
 
