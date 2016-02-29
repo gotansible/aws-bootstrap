@@ -62,5 +62,5 @@
     src={{ aws_bootstrap_terraform_file }}
     dest={{ aws_bootstrap_deploy_dir }}/vpc-genesis.tf
     mode=640
-  when: {{ aws_bootstrap_terraform_file|length > 0 }}
+  when: aws_bootstrap_terraform_file|length > 0
 
