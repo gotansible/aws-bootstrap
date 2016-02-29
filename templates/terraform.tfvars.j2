@@ -21,6 +21,3 @@ state_bucket = "{{ aws_bootstrap_state_bucket }}"
 
 jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 
-{% if aws_bootstrap_genesis_source|length > 0 %}
-genesis_source = "{{ aws_bootstrap_genesis_source }}"
-{% endif %}
