@@ -6,10 +6,13 @@ export AWS_ACCESS_KEY_ID="{{ aws_bootstrap_aws_access_key }}"
 export AWS_SECRET_ACCESS_KEY="{{ aws_bootstrap_aws_secret_key }}"
 export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
 
+echo "ansible-galaxy install -r requirements.yml --force"
 ansible-galaxy install -r requirements.yml --force
 
+echo "terraform get -update"
 terraform get -update
 
+echo "terraform apply"
 terraform apply
 
 PROVISION_IP=`terraform output provision_ip`
@@ -20,9 +23,12 @@ echo ""
 echo "ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ec2-user@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &"
 ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ec2-user@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &
 
+echo "sleep 10"
 sleep 10
 
+echo "ansible-playbook provision.yml -i inventory.ini -e  ..."
 ansible-playbook provision.yml -i inventory.ini -e "provision_vpc_id=$VPC_ID" --private-key "{{ aws_bootstrap_aws_private_key }}"
 
+echo "terraform remote config -backend=s3 -backend-config=..."
 terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key={{ aws_bootstrap_state_file }}"
 
