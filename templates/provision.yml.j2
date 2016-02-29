@@ -2,6 +2,9 @@
 - hosts: all
   sudo: true
 
+  #must be passed in
+  #provision_vpc_id: "ID_HERE"
+  
   roles:
 
   - role: gotansible.terraform
@@ -14,7 +17,6 @@
     provision_aws_zone:  "{{ aws_bootstrap_aws_zone }}"
     provision_aws_zone_alt: "{{ aws_bootstrap_aws_zone_alt }}"
 
-    provision_vpc_id: ""
     provision_vpc_name: "{{ aws_bootstrap_vpc_name }}"
     provision_state_bucket: "{{ aws_bootstrap_state_bucket }}"
     provision_state_file: "{{ aws_bootstrap_state_file }}"
