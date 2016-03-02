@@ -35,6 +35,10 @@ done
 export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
 export AWS_PROFILE=$PROFILE
 
+echo "AWS Region:  $AWS_DEFAULT_REGION"
+echo "AWS Credentials Profile: $AWS_PROFILE"
+echo
+
 echo "ansible-galaxy install -r requirements.yml --force"
 ansible-galaxy install -r requirements.yml --force
 
