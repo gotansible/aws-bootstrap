@@ -10,9 +10,6 @@
   - role: gotansible.terraform
 
   - role: gotansible.aws-provision
-    provision_aws_access_key: "{{ aws_bootstrap_aws_access_key }}"
-    provision_aws_secret_key: "{{ aws_bootstrap_aws_secret_key }}"
-    provision_aws_account_id: "{{ aws_bootstrap_aws_account_id }}"
     provision_aws_region: "{{ aws_bootstrap_aws_region }}"
     provision_aws_zone:  "{{ aws_bootstrap_aws_zone }}"
     provision_aws_zone_alt: "{{ aws_bootstrap_aws_zone_alt }}"
