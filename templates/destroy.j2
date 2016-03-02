@@ -2,8 +2,6 @@
 
 # TODO add are you sure?
 
-export AWS_ACCESS_KEY_ID="{{ aws_bootstrap_aws_access_key }}"
-export AWS_SECRET_ACCESS_KEY="{{ aws_bootstrap_aws_secret_key }}"
 export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
 
 terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key={{ aws_bootstrap_state_file }}" -disable
