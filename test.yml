@@ -2,9 +2,6 @@
   gather_facts: no
   sudo: true
   vars:
-    #aws_bootstrap_aws_access_key: ""
-    #aws_bootstrap_aws_secret_key: ""
-    #aws_bootstrap_aws_account_id: ""
 
     # Server Keys
     aws_bootstrap_aws_keypair_name: keypair-name-2015

@@ -8,6 +8,12 @@
 - src: https://github.com/gotansible/gobuild
   name: gotansible.gobuild
 
+- src: https://github.com/gotansible/sshkey
+  name: gotansible.sshkey
+
+- src: https://github.com/gotansible/aws-credentials
+  name: gotansible.sshkey
+
 - src: https://github.com/gotansible/aws-provision
   name: gotansible.aws-provision
 

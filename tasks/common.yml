@@ -39,6 +39,12 @@
     dest={{ aws_bootstrap_deploy_dir }}/terraform.tfvars
     mode=660
 
+- name: common - credentials.yml
+  template:
+    src=credentials.yml.j2
+    dest={{ aws_bootstrap_deploy_dir }}/credentials.yml
+    mode=660
+
 - name: common - provision.yml
   template:
     src=provision.yml.j2
