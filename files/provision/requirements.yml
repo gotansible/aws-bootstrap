@@ -12,7 +12,7 @@
   name: gotansible.sshkey
 
 - src: https://github.com/gotansible/aws-credentials
-  name: gotansible.sshkey
+  name: gotansible.aws-credentials
 
 - src: https://github.com/gotansible/aws-provision
   name: gotansible.aws-provision
