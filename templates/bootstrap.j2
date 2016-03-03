@@ -56,6 +56,7 @@ echo ""
 echo "ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ec2-user@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &"
 ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ec2-user@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &
 
+# this has to be long enough that the SSH connection has time to establish since the tunnel is a non blocking call
 echo "sleep 10"
 sleep 10
 
