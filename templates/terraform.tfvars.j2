@@ -22,6 +22,6 @@ jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 site_environment = "{{ aws_bootstrap_site_environment }}"
 
 
-{% for key, value in aws_bootstrap_terraform_vars.iter_items() %}
+{% for key, value in aws_bootstrap_terraform_vars.iteritems() %}
 {{ key }} = {{ value }}
 {% endfor %}
