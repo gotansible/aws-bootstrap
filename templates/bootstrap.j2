@@ -53,6 +53,11 @@ JUMP_IP=`terraform output jump_ip`
 VPC_ID=`terraform output vpc_id`
 
 echo ""
+
+# connect to jump server and run ls, this will enable the following tunnel to execute quicklyl and should remove the race condition with sleep 
+echo "ensure quick SSH connection for tunnel"
+ssh -i {{ aws_bootstrap_aws_private_key }} ubuntu@$JUMP_IP ls
+
 echo "ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ubuntu@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &"
 ssh -i {{ aws_bootstrap_aws_private_key }} -f -L 12988:$PROVISION_IP:22 ubuntu@$JUMP_IP -o StrictHostKeyChecking=no sleep 900 <&- >&- 2>&- &
 
