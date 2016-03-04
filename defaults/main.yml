@@ -4,7 +4,10 @@ aws_bootstrap_state_bucket: ''
 aws_bootstrap_state_file: vpc.tfstate
 
 aws_bootstrap_vpc_name: ''
-aws_bootstrap_vpc_cidr_block: "10.0.0.0/16"
+aws_bootstrap_vpc_cidr_prefix: "10.0"
+
+# dev, qa , prod, etc.
+aws_bootstrap_site_environment: "general"
 
 # use + to delimit list
 aws_bootstrap_jump_access_cidr: "0.0.0.0/0"
@@ -20,10 +23,12 @@ aws_bootstrap_destroy: false
 
 ########################
 
-aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/aws-bootstrap//terraform-vpc?ref=master"
+aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/terraform-aws-vpc?ref=master"
 
 # setting this will overrirde the one generate from the template in this file
 aws_bootstrap_terraform_file: ""
+
+aws_bootstrap_terraform_vars: []
 
 ########################
 

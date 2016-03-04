@@ -9,7 +9,7 @@ vpc_zone = "{{ aws_bootstrap_aws_zone }}"
 vpc_zone_alt = "{{ aws_bootstrap_aws_zone_alt }}"
 
 aws_vpc_name = "{{ aws_bootstrap_vpc_name }}"
-vpc_cidr_block = "{{ aws_bootstrap_vpc_cidr_block }}"
+vpc_cidr_prefix = "{{ aws_bootstrap_vpc_cidr_prefix }}"
 
 aws_keypair_name = "{{ aws_bootstrap_aws_keypair_name }}"
 aws_private_key = "{{ aws_bootstrap_aws_private_key }}"
@@ -20,3 +20,8 @@ state_bucket = "{{ aws_bootstrap_state_bucket }}"
 
 jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 
+site_environment = "{{ aws_bootstrap_site_environment }}"
+
+{% for key, value in aws_bootstrap_terraform_vars.iter_items() %}
+{{ key }} = {{ value }}
+{% %}
