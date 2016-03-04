@@ -24,4 +24,4 @@ site_environment = "{{ aws_bootstrap_site_environment }}"
 
 {% for key, value in aws_bootstrap_terraform_vars.iter_items() %}
 {{ key }} = {{ value }}
-{% %}
+{% endfor %}

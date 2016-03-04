@@ -27,7 +27,7 @@
     dest={{ aws_bootstrap_deploy_dir }}/
     mode=660
 
-- name: common - generate terraform tfvars file
+- name: common - generate terraform genesis vpc module instance
   template:
     src=vpc-genesis.tf.j2
     dest={{ aws_bootstrap_deploy_dir }}/vpc-genesis.tf
