@@ -28,7 +28,7 @@ aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/terraform-aws
 # setting this will overrirde the one generate from the template in this file
 aws_bootstrap_terraform_file: ""
 
-aws_bootstrap_terraform_vars: []
+aws_bootstrap_terraform_vars: {}
 
 ########################
 
