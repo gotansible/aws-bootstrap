@@ -10,6 +10,13 @@ variable "vpc_zone_alt" {}
 variable "state_bucket" {}
 variable "jump_access_cidr" {}
 
+variable "vpc_cidr_prefix" {}
+variable "site_environment" {}
+
+variable "nat_instance_type" {}
+variable "provision_instance_type" {}
+variable "jump_instance_type" {}
+
 module "genesis" {
 	source = "{{ aws_bootstrap_genesis_source }}"
 
@@ -24,11 +31,20 @@ module "genesis" {
 	state_bucket= "${var.state_bucket}"
 
 	jump_access_cidr = "${var.jump_access_cidr}"
-	
+
+	vpc_cidr_prefix = "${var.vpc_cidr_prefix}"
+	site_environment = "${var.site_environment}"
+	nat_instance_type = "${var.nat_instance_type}"
+	provision_instance_type = "${var.nat_instance_type}"
+	jump_instance_type = "${var.nat_instance_type}"
 }
 
 output "vpc_id" {
     value = "${module.genesis.vpc_id}"
+}
+
+output "vpc_cidr_prefix" {
+	value = "${module.genesis.vpc_cidr_prefix}"
 }
 
 output "vpc_cidr_block" {

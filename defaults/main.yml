@@ -1,17 +1,4 @@
 ---
-
-aws_bootstrap_state_bucket: ''
-aws_bootstrap_state_file: vpc.tfstate
-
-aws_bootstrap_vpc_name: ''
-aws_bootstrap_vpc_cidr_prefix: "10.0"
-
-# dev, qa , prod, etc.
-aws_bootstrap_site_environment: "general"
-
-# use + to delimit list
-aws_bootstrap_jump_access_cidr: "0.0.0.0/0"
-
 aws_bootstrap_keys: []
 
 ### Special Flags ####
@@ -29,6 +16,21 @@ aws_bootstrap_genesis_source: "git::ssh://git@github.com/gotdevops/terraform-aws
 aws_bootstrap_terraform_file: ""
 
 aws_bootstrap_terraform_vars: {}
+
+aws_bootstrap_state_bucket: ''
+aws_bootstrap_state_file: vpc.tfstate
+
+aws_bootstrap_vpc_name: ''
+aws_bootstrap_vpc_cidr_prefix: "10.0"
+# dev, qa , prod, etc.
+aws_bootstrap_site_environment: "general"
+
+# use + to delimit list
+aws_bootstrap_jump_access_cidr: "0.0.0.0/0"
+
+aws_bootstrap_nat_instance_type: "m1.small"
+aws_bootstrap_provision_instance_type: "t2.small"
+aws_bootstrap_jump_instance_type: "t2.micro"
 
 ########################
 

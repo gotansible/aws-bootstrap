@@ -21,6 +21,9 @@ jump_access_cidr = "{{ aws_bootstrap_jump_access_cidr }}"
 
 site_environment = "{{ aws_bootstrap_site_environment }}"
 
+nat_instance_type = "{{ aws_bootstrap_nat_instance_type }}"
+provision_instance_type = "{{ aws_bootstrap_provision_instance_type }}"
+jump_instance_type = "{{ aws_bootstrap_jump_instance_type }}"
 
 {% for key, value in aws_bootstrap_terraform_vars.iteritems() %}
 {{ key }} = {{ value }}
