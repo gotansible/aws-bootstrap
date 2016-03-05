@@ -19,8 +19,8 @@
     - "**/terraform.tfvars"
     - "**/terraform.tfstate"
     - "**/terraform.tfstate.*"
-    - "**/bootstrap"
-    - "**/.bootstrap"
+    - "**/generated"
+    - "**/.generated"
 
 - name: common - move setup files
   copy:

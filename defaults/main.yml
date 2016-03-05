@@ -4,7 +4,7 @@ aws_bootstrap_keys: []
 ### Special Flags ####
 
 #generate files in this dir
-aws_bootstrap_deploy_dir: ../bootstrap
+aws_bootstrap_deploy_dir: ../.generated
 aws_bootstrap_isolated: false
 aws_bootstrap_destroy: false
 
