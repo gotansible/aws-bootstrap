@@ -17,6 +17,9 @@ variable "nat_instance_type" {}
 variable "provision_instance_type" {}
 variable "jump_instance_type" {}
 
+variable "dns_jump_domain" {}
+variable "dns_jump_zone_id" {}
+
 module "genesis" {
 	source = "{{ aws_bootstrap_genesis_source }}"
 
@@ -37,6 +40,9 @@ module "genesis" {
 	nat_instance_type = "${var.nat_instance_type}"
 	provision_instance_type = "${var.provision_instance_type}"
 	jump_instance_type = "${var.jump_instance_type}"
+
+	dns_jump_domain =  "${var.dns_jump_domain}"
+	dns_jump_zone_id = "${var.dns_jump_zone_id}"
 }
 
 output "vpc_id" {

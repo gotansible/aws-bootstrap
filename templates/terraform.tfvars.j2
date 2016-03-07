@@ -25,6 +25,9 @@ nat_instance_type = "{{ aws_bootstrap_nat_instance_type }}"
 provision_instance_type = "{{ aws_bootstrap_provision_instance_type }}"
 jump_instance_type = "{{ aws_bootstrap_jump_instance_type }}"
 
+dns_jump_domain = "{{ aws_bootstrap_dns_jump_domain }}"
+dns_jump_zone_id = "{{ aws_bootstrap_dns_jump_zone_id }}"
+
 {% for key, value in aws_bootstrap_terraform_vars.iteritems() %}
 {{ key }} = {{ value }}
 {% endfor %}
