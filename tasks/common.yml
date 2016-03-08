@@ -63,6 +63,12 @@
     dest={{ aws_bootstrap_deploy_dir }}/destroy
     mode=750
 
+- name: common - generate terrform remote configure
+  template:
+    src=terraform-remote-configure.j2
+    dest={{ aws_bootstrap_deploy_dir }}/terraform-remote-configure
+    mode=750
+
 - name: common - copy terraform modle file
   copy:
     src={{ aws_bootstrap_terraform_file }}

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
+
+echo "terraform remote config -backend=s3 -backend-config=..."
+terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key={{ aws_bootstrap_state_file }}"
+
+
+
