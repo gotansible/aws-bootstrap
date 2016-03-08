@@ -16,7 +16,6 @@
     dest={{ aws_bootstrap_deploy_dir }}/../.gitignore
     line={{ item }}
   with_items:
-    - "**/terraform.tfvars"
     - "**/terraform.tfstate"
     - "**/terraform.tfstate.*"
     - "**/generated"
