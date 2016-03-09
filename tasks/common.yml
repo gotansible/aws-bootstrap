@@ -23,7 +23,7 @@
     - "**/terraform.tfstate.*"
     - "**/generated"
     - "**/.generated"
-    - "**/.terraform"
+    - "**/.terraform/"
 
 - name: common - move setup files
   copy:
