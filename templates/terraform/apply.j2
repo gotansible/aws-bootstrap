@@ -12,10 +12,18 @@ fi
 
 cd $1
 
+VAR_FILE=""
+
+if [ -f "../terraform.tfvars" ]; then
+  VAR_FILE="-var-file=../terraform.tfvars"
+fi
+
+if [ -f "./terraform.tfvars" ]; then
+  VAR_FILE="$VAR_FILE -var-file=./terraform.tfvars"
+fi
+
 terraform get -update
-terraform apply -var-file=./terraform.tfvars -var-file=../terraform.tfvars
+terraform apply $VAR_FILE
 
 ./terraform-remote-configure
-
-#terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key=$1.tfstate"
 

@@ -12,10 +12,19 @@ fi
 
 cd $1
 
+VAR_FILE=""
+
+if [ -f "../terraform.tfvars" ]; then
+  VAR_FILE="-var-file=../terraform.tfvars"
+fi
+
+if [ -f "./terraform.tfvars" ]; then
+  VAR_FILE="$VAR_FILE -var-file=./terraform.tfvars"
+fi
+
 terraform get -update
 
 ./terraform-remote-configure
 
-terraform plan --module-depth=-1 -var-file=./terraform.tfvars -var-file=../terraform.tfvars
-
+terraform plan --module-depth=-1 $VAR_FILE
 
