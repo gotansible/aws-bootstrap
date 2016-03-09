@@ -3,8 +3,11 @@
 - name: common - create bootstrap folder
   file:
     state=directory
-    path={{ aws_bootstrap_deploy_dir }}/
+    path={{ item }}/
     mode=770
+  with_items:
+    - {{ aws_bootstrap_deploy_dir }}
+    - {{ aws_bootstrap_deploy_dir }}/commands
 
 - name: common - ensure .gitignore exists
   file:
@@ -68,6 +71,17 @@
     src=terraform-remote-configure.j2
     dest={{ aws_bootstrap_deploy_dir }}/terraform-remote-configure
     mode=750
+
+- name: common - generate terrform general commands
+  template:
+    src={{ item }}.j2
+    dest={{ aws_bootstrap_deploy_dir }}/commands/{{ item }}
+    mode=750
+  with_items:
+    - apply
+    - configure
+    - destroy
+    - plan
 
 - name: common - copy terraform modle file
   copy:
