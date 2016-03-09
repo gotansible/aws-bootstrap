@@ -6,8 +6,8 @@
     path={{ item }}/
     mode=770
   with_items:
-    - {{ aws_bootstrap_deploy_dir }}
-    - {{ aws_bootstrap_deploy_dir }}/commands
+    - "{{ aws_bootstrap_deploy_dir }}"
+    - "{{ aws_bootstrap_deploy_dir }}/commands"
 
 - name: common - ensure .gitignore exists
   file:
