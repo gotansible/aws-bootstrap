@@ -74,7 +74,7 @@
 
 - name: common - generate terrform general commands
   template:
-    src={{ item }}.j2
+    src=terraform/{{ item }}.j2
     dest={{ aws_bootstrap_deploy_dir }}/commands/{{ item }}
     mode=750
   with_items:
