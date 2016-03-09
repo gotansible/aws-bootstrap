@@ -2,7 +2,7 @@
 
 set -e
 
-export AWS_DEFAULT_REGION="{{ provision_aws_region }}"
+export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
 
 if [ "$#" -ne 1 ]
 then

@@ -2,7 +2,7 @@
 
 set -e
 
-export AWS_DEFAULT_REGION="{{ provision_aws_region }}"
+export AWS_DEFAULT_REGION="{{ aws_bootstrap_aws_region }}"
 
 if [ "$#" -ne 1 ]
 then
@@ -15,5 +15,7 @@ cd $1
 terraform get -update
 terraform apply -var-file=./terraform.tfvars -var-file=../terraform.tfvars
 
-terraform remote config -backend=s3 -backend-config="bucket={{ provision_state_bucket }}" -backend-config="key=$1.tfstate"
+./terraform-remote-configure
+
+#terraform remote config -backend=s3 -backend-config="bucket={{ aws_bootstrap_state_bucket }}" -backend-config="key=$1.tfstate"
 
