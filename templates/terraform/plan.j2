@@ -13,6 +13,9 @@ fi
 cd $1
 
 terraform get -update
+
+./terraform-remote-configure
+
 terraform plan --module-depth=-1 -var-file=./terraform.tfvars -var-file=../terraform.tfvars
 
 
