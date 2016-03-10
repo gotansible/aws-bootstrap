@@ -12,6 +12,16 @@ fi
 
 cd $1
 
+VAR_FILE=""
+
+if [ -f "../terraform.tfvars" ]; then
+  VAR_FILE="-var-file=../terraform.tfvars"
+fi
+
+if [ -f "./terraform.tfvars" ]; then
+  VAR_FILE="$VAR_FILE -var-file=./terraform.tfvars"
+fi
+
 echo "terraform destroy"
-terraform destroy
+terraform destroy $VAR_FILE
 
