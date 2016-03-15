@@ -22,7 +22,7 @@ if [ -f "./terraform.tfvars" ]; then
   VAR_FILE="$VAR_FILE -var-file=./terraform.tfvars"
 fi
 
-terraform get -update
+terraform get -update=true
 terraform apply $VAR_FILE
 
 ./terraform-remote-configure
