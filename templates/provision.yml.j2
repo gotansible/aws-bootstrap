@@ -29,11 +29,5 @@
     provision_terraform_repo_url: "{{ aws_bootstrap_terraform_repo }}"
     provision_terraform_repo_keyfile: "{{ aws_bootstrap_terraform_repo_keyfile }}"
     provision_terraform_repo_version: "{{ aws_bootstrap_terraform_repo_version }}"
-{% if aws_bootstrap_keys|length > 0 %}
-    provision_keys:
-{% for path in aws_bootstrap_keys %}
-      - {{ path }}
-{% endfor %}
-{% endif %}
 
 
