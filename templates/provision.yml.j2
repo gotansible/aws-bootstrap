@@ -2,32 +2,45 @@
 - hosts: all
   sudo: true
 
-  #must be passed in
+  #either must be passed in or uncomment the pre_task below
   #provision_vpc_id: "ID_HERE"
-  
+
+  #pre_tasks:
+  #  - name: Gather ec2 facts
+  #    action: ec2_facts
+
+  #  - name: get vpc id
+  #    command: "curl -s http://169.254.169.254/latest/meta-data/network/interfaces/macs/{{ ansible_ec2_mac}}/vpc-id"
+  #    register: vpc_id
+
+  #  - set_fact:
+  #      provision_vpc_id: "{{ vpc_id.stdout }}"
+
   roles:
 
-  - role: gotansible.terraform
+    - role: gotansible.terraform
 
-  - role: gotansible.aws-provision
-    provision_aws_region: "{{ aws_bootstrap_aws_region }}"
-    provision_aws_zone:  "{{ aws_bootstrap_aws_zone }}"
-    provision_aws_zone_alt: "{{ aws_bootstrap_aws_zone_alt }}"
+    - role: gotansible.aws-provision
+      provision_aws_region: "{{ aws_bootstrap_aws_region }}"
+      provision_aws_zone:  "{{ aws_bootstrap_aws_zone }}"
+      provision_aws_zone_alt: "{{ aws_bootstrap_aws_zone_alt }}"
 
-    provision_vpc_name: "{{ aws_bootstrap_vpc_name }}"
-    provision_state_bucket: "{{ aws_bootstrap_state_bucket }}"
-    provision_state_file: "{{ aws_bootstrap_state_file }}"
-    provision_jump_access_cidr: "{{ aws_bootstrap_jump_access_cidr }}"
-    provision_keypair_name: "{{ aws_bootstrap_aws_keypair_name }}"
-    provision_private_key: "~/.ssh/provision/{{ aws_bootstrap_aws_private_key | basename }}"
-    provision_inventory_all_filters:
-      - "vpc-id={{'{{'}} provision_vpc_id {{ '}}' }}"
+      provision_vpc_name: "{{ aws_bootstrap_vpc_name }}"
+      provision_state_bucket: "{{ aws_bootstrap_state_bucket }}"
+      provision_state_file: "{{ aws_bootstrap_state_file }}"
+      provision_jump_access_cidr: "{{ aws_bootstrap_jump_access_cidr }}"
+      provision_keypair_name: "{{ aws_bootstrap_aws_keypair_name }}"
+      provision_private_key: "~/.ssh/provision/{{ aws_bootstrap_aws_private_key | basename }}"
+      provision_inventory_all_filters:
+        - "vpc-id={{'{{'}} provision_vpc_id {{ '}}' }}"
 
-    provision_playbook_repo_url: "{{ aws_bootstrap_playbook_repo }}"
-    provision_playbook_repo_keyfile: "{{ aws_bootstrap_playbook_repo_keyfile }}"
-    provision_playbook_repo_version: "{{ aws_bootstrap_playbook_repo_version }}"
-    provision_terraform_repo_url: "{{ aws_bootstrap_terraform_repo }}"
-    provision_terraform_repo_keyfile: "{{ aws_bootstrap_terraform_repo_keyfile }}"
-    provision_terraform_repo_version: "{{ aws_bootstrap_terraform_repo_version }}"
+      provision_playbook_repo_url: "{{ aws_bootstrap_playbook_repo }}"
+      provision_playbook_repo_keyfile: "{{ aws_bootstrap_playbook_repo_keyfile }}"
+      provision_playbook_repo_version: "{{ aws_bootstrap_playbook_repo_version }}"
+      provision_terraform_repo_url: "{{ aws_bootstrap_terraform_repo }}"
+      provision_terraform_repo_keyfile: "{{ aws_bootstrap_terraform_repo_keyfile }}"
+      provision_terraform_repo_version: "{{ aws_bootstrap_terraform_repo_version }}"
 
+    - role: gotansible.sudo
+      sudo_group: provision
 
