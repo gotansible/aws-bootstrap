@@ -57,9 +57,12 @@
 
 - name: common - generate bootstrap file
   template:
-    src=bootstrap.j2
-    dest={{ aws_bootstrap_deploy_dir }}/bootstrap
+    src={{ item }}.j2
+    dest={{ aws_bootstrap_deploy_dir }}/{{ item }}
     mode=750
+  with_items:
+    - bootstrap
+    - update-credentials
 
 - name: common - generate destroy file
   template:
