@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+system("
+    if [ #{ARGV[0]} = 'up' ] && [ -f './requirements.yml' ] ; then
+        echo 'You are doing vagrant up, updating from requirements.yml'
+        ansible-galaxy install -r requirements.yml --force
+    fi
+")
+
 Vagrant.configure(2) do |config|
 	config.vm.define "server" do |es|
 		es.vm.hostname = "server"
