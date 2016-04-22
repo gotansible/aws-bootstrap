@@ -22,8 +22,8 @@
     aws_bootstrap_aws_zone_alt: "{{ aws_bootstrap_aws_region }}b"
 
   roles:
-    - role: aws_bootstrap
-      aws_bootstrap_terraform_file: vpc.tf
+    - role: aws-bootstrap
+      #aws_bootstrap_terraform_file: vpc.tf
       aws_bootstrap_vpc_name: "{{ vpc_name }}"
       aws_bootstrap_state_bucket: state.provision.{{ domain }}
       aws_bootstrap_jump_access_cidr: "{{ safe_cidr }}"

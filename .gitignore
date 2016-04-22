@@ -1,2 +1,4 @@
 bootstrap
 *.tfvars
+.vagrant/
+.roles/

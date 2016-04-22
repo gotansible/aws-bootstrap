@@ -36,6 +36,8 @@
     src=vpc-genesis.tf.j2
     dest={{ aws_bootstrap_deploy_dir }}/vpc-genesis.tf
     mode=660
+  when: aws_bootstrap_terraform_file|length == 0
+
 
 - name: common - generate terraform tfvars file
   template:
